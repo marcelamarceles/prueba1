@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src=" https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- libreria de ambientes -->
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+  <script
+    src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+
+
+
 </head>
+
 <body>
-    
+  <a-scene physics="gravity:0; debug:true">
+
+    <a-entity id="rig" movement-controls kinematic-body>
+      <a-entity id="camera" camera position="0 3 0" look-controls></a-entity>
+    </a-entity>
+
+
+    <a-assets>
+      <a-asset-item id="chad" src="./assets/chad.gltf"></a-asset-item>
+      <a-asset-item id="perro" src="./assets/perro-ahora.gltf"></a-asset-item>
+      <a-asset-item id="ogro" src="assets\ogro.gltf"></a-asset-item>
+      <a-asset-item id="charmi" src="assets\charmandito.glb"></a-asset-item>
+    </a-assets>
+
+
+    <a-entity static-body gltf-model="#chad" scale="0.5 0.5 .5" position="3.633 0 -18.045"></a-entity>
+    <a-entity body="type: dynamic; mass: 1; shape: none;" gltf-model="#perro" scale="0.5 0.5 .5"
+      position="-2.383 0 1.261"></a-entity>
+    <a-entity static-body gltf-model="#ogro" scale="3.9 3.9 3.9" position="-3.5 0 -10.9"></a-entity>
+    <a-entity static-body gltf-model="#charmi" scale="3.9 3.9 3.9" position=" 3.297 0 -6.975" rotation="0 -51.436 0">
+    </a-entity>
+
+    <!-- PAREDES -->
+    <a-box static-body color="white" position="-6.517 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
+    <a-box static-body color="white" position="6.509 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
+    |<a-box static-body color="white" position="10.69504 2.27754 -13.5204" scale="22.36039 4.639 0.935"
+      rotation="0 90 0"></a-box>
+    |<a-box static-body color="white" position="-10.721 2.27754 -13.5204" scale="22.36039 4.639 0.935"
+      rotation="0 90 0"></a-box>
+
+    <a-entity light="intensity: 0.52; type: ambient" position="1.694 9.209 0"></a-entity>
+
+    <a-box static-body color="white" position="0.04352 2.27754 -24.22079" scale="22.36039 4.639 0.935"></a-box>
+
+    <!-- AMBIENTE -->
+    <a-entity environment="preset: goaland; groundColor: #445; grid: cross"></a-entity>
+
+  </a-scene>
 </body>
+
 </html>
+
+<!-- https://www.blendswap.com/blends/category/16 -->
+<!-- https://github.com/n5ro/aframe-physics-system -->
